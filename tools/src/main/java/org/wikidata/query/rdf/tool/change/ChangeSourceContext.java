@@ -95,7 +95,8 @@ public final class ChangeSourceContext {
             } else {
                 if (leftOff.isBefore(minStartTime)) {
                     throw new IllegalStateException("RDF store reports the last update time is before the minimum safe poll time.  "
-                            + "You will have to reload from scratch or you might have missing data.");
+                            + "You will have to reload from scratch or you might have missing data. leftOff: "
+                            + leftOff + ", minStartTime: " + minStartTime);
                 }
                 startInstant = leftOff;
                 log.info("Found start time in the RDF store: {}", leftOff);
